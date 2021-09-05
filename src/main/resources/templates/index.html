@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado de personas.</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+	<header th:replace="plantillas/base :: header"></header>
+	<div class="container mt-5">
+	<a class="btn btn-primary mb-2" th:href="@{/agregar}">[[#{accion.agregar}]]</a>
+	<h3 class="text-center">[[#{listado.personas}]]</h3>
+	<table class="table" border="1">
+		<tr class="table-primary">
+		<th>[[#{persona.nombre}]]</th>
+		<th>[[#{persona.apellido}]]</th>
+		<th>[[#{persona.email}]]</th>
+		<th>[[#{persona.telefono}]]</th>
+		<th>[[#{persona.actualizar}]]</th>
+		<th>[[#{persona.eliminar}]]</th>
+		</tr>
+		<tr class="table-primary" th:each="persona : ${personas}">
+			<td class="table-secondary" th:text="${persona.nombre}"></td>
+			<td class="table-secondary" th:text="${persona.apellido}"></td>
+			<td class="table-secondary" th:text="${persona.email}"></td>
+			<td class="table-secondary" th:text="${persona.telefono}"></td>
+			<td class="table-secondary"><a class="btn btn-warning" th:href="@{/editar/} + ${persona.idPersona}">[[#{accion.editar}]]</a></td>
+			<td class="table-secondary"><a class="btn btn-danger" th:href="@{/eliminar/} + ${persona.idPersona}">[[#{accion.eliminar}]]</a></td>
+		</tr>
+	</table>
+	<div th:replace="plantillas/base :: footer"><a></a></div>
+	</div>
+</body>
+</html>

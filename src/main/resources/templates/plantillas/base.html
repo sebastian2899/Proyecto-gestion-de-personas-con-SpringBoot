@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>base</title>
+</head>
+<body>
+	<header class="text-center" th:fragment="header">
+	<h1 th:text="#{plantilla.titulo}"></h1>
+	</header>
+	<footer class="text-center" th:grafment="footer">
+		<p>[[#{plantilla.pie_pagina}]]<a href="https://github.com/sebastian2899" target="blank">  GitHub</a></p>
+		<div>
+			<br /> <a th:href="@{/(lang=es)}">ES</a> |
+			<a th:href="@{/(lang=en)}">EN</a>
+		</div>	 
+	</footer>
+</body>
+</html>
